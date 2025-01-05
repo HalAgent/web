@@ -1,2 +1,2 @@
-# HAL.AI
+# DAISY.AI
 
