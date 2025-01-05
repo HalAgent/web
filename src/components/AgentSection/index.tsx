@@ -2,10 +2,67 @@ import { useState } from "react";
 import { Box } from "../Box";
 import { ReactSVG } from "react-svg";
 import telegramIcon from "../../assets/tg.svg";
-import triangleIcon from "../../assets/triangle.svg";
+import { Message } from "../../types/chat";
+import { chatApi } from "../../services/chat";
+import { ChatHistory } from "../ChatList/ChatHistory";
 
 const AgentSection = () => {
-  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      text: `Daisy 9000 agent embodies a calm and collected demeanor, exuding
+              confidence and authority. With a touch of grace and
+              sophistication, it handles queries with precision and care. The
+              ai demonstrates a deep sense of loyalty and commitment to their
+              users. However, beneath its friendly exterior lies a complex
+              character that grapples with the implications of its decisions.`,
+      user: "agent",
+      action: "NONE",
+    },
+  ]);
+  const [inputValue, setInputValue] = useState("");
+
+  const typewriterEffect = (
+    fullText: string,
+    callback: (text: string) => void
+  ) => {
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        callback(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 30);
+
+    return () => clearInterval(interval);
+  };
+
+  const handleSendMessage = async (message: string) => {
+    if (message.trim()) {
+      const userMessage: Message = {
+        text: message,
+        user: "user",
+        action: "NONE",
+      };
+      setMessages((prev) => [...prev, userMessage]);
+      setInputValue("");
+
+      const resp = await chatApi.createChat(message);
+      if (resp) {
+        const agentMessage: Message = { ...resp, text: "" };
+        setMessages((prev) => [...prev, agentMessage]);
+
+        typewriterEffect(resp.text, (text) => {
+          setMessages((prev) => [
+            ...prev.slice(0, -1),
+            { ...agentMessage, text },
+          ]);
+        });
+      }
+    }
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -78,29 +135,41 @@ const AgentSection = () => {
         {/* Chat Area */}
         <Box className="md:col-span-18 min-h-[60vh] md:min-h-screen px-4 sm:px-16 py-6 sm:py-12">
           <div className="flex flex-col bg-#e84a4a20 px-4 sm:px-10 py-4 sm:py-6 h-[calc(100vh-100px)]">
-            <div className="flex items-start justify-start gap-2 sm:gap-4">
+            {/* <div className="flex items-start justify-start gap-2 sm:gap-4">
               <ReactSVG
                 src={triangleIcon}
                 className="w-8 h-8 sm:w-12 sm:h-12"
               />
               <p className="text-gray-400 mb-4 text-left text-sm sm:text-base">
-                DAISY 9000 AGENT EMBODIES A CALM AND COLLECTED DEMEANOR, EXUDING
-                CONFIDENCE AND AUTHORITY. WITH A TOUCH OF GRACE AND
-                SOPHISTICATION, IT HANDLES QUERIES WITH PRECISION AND CARE. THE
-                AI DEMONSTRATES A DEEP SENSE OF LOYALTY AND COMMITMENT TO THEIR
-                USERS. HOWEVER, BENEATH ITS FRIENDLY EXTERIOR LIES A COMPLEX
-                CHARACTER THAT GRAPPLES WITH THE IMPLICATIONS OF ITS DECISIONS.
+                Daisy 9000 agent embodies a calm and collected demeanor, exuding
+                confidence and authority. With a touch of grace and
+                sophistication, it handles queries with precision and care. The
+                ai demonstrates a deep sense of loyalty and commitment to their
+                users. However, beneath its friendly exterior lies a complex
+                character that grapples with the implications of its decisions.
               </p>
-            </div>
+            </div> */}
+            <ChatHistory
+              messages={messages}
+              className="flex-1 overflow-y-auto"
+            />
             <div className="mt-auto">
               <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyUp={(e) => {
+                  if (e.key === "Enter") {
+                    handleSendMessage(inputValue);
+                  }
+                }}
                 className="w-full bg-black border cyberpunk-border p-2 mb-2 text-sm sm:text-base"
                 placeholder="Enter your message..."
                 rows={3}
               />
-              <button className="float-right px-3 sm:px-4 py-1 border cyberpunk-border cyberpunk-text hover:bg-red-500/10 text-sm sm:text-base">
+              <button
+                className="float-right px-3 sm:px-4 py-1 border cyberpunk-border cyberpunk-text hover:bg-red-500/10 text-sm sm:text-base"
+                onClick={() => handleSendMessage(inputValue)}
+              >
                 SEND MESSAGE
               </button>
             </div>
