@@ -53,11 +53,11 @@ export const ChatMessage: React.FC<Message> = ({ text, user, updatedAt }) => {
             <div className="flex items-start justify-start gap-2 sm:gap-4">
               <ReactSVG
                 src={triangleIcon}
-                className="w-8 h-8 sm:w-12 sm:h-12"
+                className="w-4 h-4"
               />
               <p 
                 ref={textRef}
-                className="text-gray-400 mb-4 text-left text-md sm:text-base"
+                className="flex-1 text-gray-400 mb-4 text-left text-md sm:text-base"
               >
                 {text}
               </p>
