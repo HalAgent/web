@@ -1,7 +1,8 @@
 import { ReactSVG } from "react-svg";
 import XIcon from "../../assets/x.svg";
 import GitbookIcon from "../../assets/gitbook.svg";
-import DexscreenerIcon from "../../assets/dexscreener.svg";
+import GithubIcon from "../../assets/github.svg";
+//import DexscreenerIcon from "../../assets/dexscreener.svg";
 
 interface HeaderProps {
   isHeaderVisible: boolean;
@@ -47,13 +48,13 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
           />
         </a>
         <a
-          href="https://dexscreener.com"
+          href="https://github.com/HalAgent/halagent"
           target="_blank"
           rel="noopener noreferrer"
           className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full"
         >
           <ReactSVG
-            src={DexscreenerIcon}
+            src={GithubIcon}
             className="color-black hover:color-red hover:cursor-pointer scale-75 sm:scale-80"
           />
         </a>
