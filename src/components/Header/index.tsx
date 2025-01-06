@@ -23,7 +23,7 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
         />
         <span className="cyberpunk-text text-lg sm:text-xl">HAL.AI</span>
       </div>
-      <div className="flex gap-2 sm:gap-4 mt-2 ml-2">
+      <div className="flex gap-2 sm:gap-4 mt-2 mx-2">
         <a
           href="https://twitter.com/HALAI_SOL"
           target="_blank"

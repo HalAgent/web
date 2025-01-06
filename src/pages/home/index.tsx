@@ -22,9 +22,7 @@ const Home: React.FC = () => {
   return (
     <div className="cyberpunk-bg text-white">
       <Header isHeaderVisible={isHeaderVisible} isAtTop={isAtTop} />
-      <main>
-        <DescriptionSection />
-      </main>
+      <DescriptionSection />
     </div>
   );
 };
