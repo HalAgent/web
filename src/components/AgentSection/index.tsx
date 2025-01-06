@@ -70,22 +70,22 @@ const AgentSection = () => {
   };
 
   return (
-    <section className="w-auto min-h-screen mx-2 sm:mx-20px lg:mx-80px px-2 sm:px-4 py-4 sm:py-8">
-      <div className="grid grid-cols-1 md:grid-cols-24 gap-4 h-full">
+    <section className="w-full min-h-screen p-2 sm:p-4 md:p-6 lg:p-8">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-4 h-full md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)]">
         {/* Left Profile */}
-        <div className="md:col-span-3 min-h-0 md:min-h-screen flex flex-col justify-between">
-          <div>
+        <div className="flex-none md:w-72 lg:w-80 flex flex-col justify-between">
+          <div className="flex flex-col justify-center items-center">
             <Box
-              className="w-full h-auto aspect-[200/175] flex items-center justify-center py-3"
-              contentClassName="w-full h-full sm:w-unset sm:h-unset"
+              className="w-full flex items-center justify-center py-3"
+              contentClassName="w-full h-full sm:w-unset sm:h-unset flex items-center justify-center"
             >
               <img
                 src="/agent-avatar.png"
                 alt="DAISY 9000"
-                className="w-full sm:w-300px md:w-148px aspect-square"
+                className="w-48 sm:w-56 md:w-48 lg:w-56 aspect-square object-cover"
               />
             </Box>
-            <div className="space-y-3 sm:space-y-4 mt-4 sm:mt-6">
+            <div className="space-y-3 sm:space-y-4 mt-4 w-full">
               <div>
                 <h4 className="text-xs sm:text-sm">NAME</h4>
                 <p className="cyberpunk-text text-base sm:text-lg">
@@ -104,7 +104,7 @@ const AgentSection = () => {
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm mb-2">FEATURE</h4>
-                <button className="w-full py-1 px-3 text-xs sm:text-sm text-left bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
+                <button className="w-full max-w-320px py-1 px-3 text-xs sm:text-sm text-left bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
                   Empathetic
                 </button>
               </div>
@@ -112,7 +112,7 @@ const AgentSection = () => {
                 <h4 className="text-xs sm:text-sm mb-2">SOCIAL</h4>
                 <button
                   onClick={handleClick}
-                  className="w-full py-1 px-3 text-xs sm:text-sm font-bold border cyberpunk-border cyberpunk-text flex items-center justify-center"
+                  className="w-full max-w-320px py-1 px-3 text-xs sm:text-sm font-bold border cyberpunk-border cyberpunk-text flex items-center justify-center hover:bg-red-500/10"
                 >
                   TELEGRAM
                   <ReactSVG
@@ -123,7 +123,7 @@ const AgentSection = () => {
               </div>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:block mt-4">
             <h4 className="cyberpunk-text uppercase text-sm">Motto:</h4>
             <p className="text-gray-400 uppercase text-xs sm:text-sm">
               This mission is too important for me to allow you to jeopardize
@@ -133,36 +133,23 @@ const AgentSection = () => {
         </div>
 
         {/* Chat Area */}
-        <Box className="md:col-span-16 min-h-[60vh] md:min-h-screen px-4 sm:px-16 py-6 sm:py-12">
-          <div className="flex flex-col bg-#e84a4a20 px-4 sm:px-10 py-4 sm:py-6 h-[calc(100vh-100px)]">
-            {/* <div className="flex items-start justify-start gap-2 sm:gap-4">
-              <ReactSVG
-                src={triangleIcon}
-                className="w-8 h-8 sm:w-12 sm:h-12"
-              />
-              <p className="text-gray-400 mb-4 text-left text-sm sm:text-base">
-                Daisy 9000 agent embodies a calm and collected demeanor, exuding
-                confidence and authority. With a touch of grace and
-                sophistication, it handles queries with precision and care. The
-                ai demonstrates a deep sense of loyalty and commitment to their
-                users. However, beneath its friendly exterior lies a complex
-                character that grapples with the implications of its decisions.
-              </p>
-            </div> */}
+        <Box className="flex-1 relative">
+          <div className="md:absolute inset-8 flex flex-col bg-[#e84a4a20] p-4 sm:p-6">
             <ChatHistory
               messages={messages}
-              className="flex-1 overflow-y-auto"
+              className="flex-1 overflow-y-auto mb-4"
             />
             <div className="mt-auto">
               <textarea
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyUp={(e) => {
-                  if (e.key === "Enter") {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
                     handleSendMessage(inputValue);
                   }
                 }}
-                className="w-full bg-black border cyberpunk-border p-2 mb-2 text-sm sm:text-base"
+                className="w-full bg-black border cyberpunk-border p-2 mb-2 text-sm sm:text-base resize-none"
                 placeholder="Enter your message..."
                 rows={3}
               />
@@ -177,8 +164,8 @@ const AgentSection = () => {
         </Box>
 
         {/* Right Status */}
-        <div className="md:col-span-5 flex flex-col justify-between min-h-0 md:min-h-screen mt-4 md:mt-0">
-          <div className="flex flex-col border-l-2 border-#e84a4a px-4 h-fit cyberpunk-border">
+        <div className="flex-none md:w-72 lg:w-80 flex flex-col justify-between">
+          <div className="flex flex-col border-l-2 border-[#e84a4a] px-4 h-fit cyberpunk-border">
             <h3 className="cyberpunk-text mt-2 text-sm sm:text-base">
               ACTIVE QUEST
             </h3>
@@ -197,12 +184,14 @@ const AgentSection = () => {
             </div>
           </div>
           <video
-            className="w-32 h-32 sm:w-48 sm:h-48 rounded-full object-cover opacity-90 cursor-pointer mx-auto mt-4 md:mt-0"
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover opacity-90 cursor-pointer mx-auto mt-4"
             autoPlay
             loop
             muted
             playsInline
-            onClick={() => window.open("https://halagent.org/#/home", "_self")}
+            onClick={() =>
+              window.open(`${window.location.origin}/#/home`, "_self")
+            }
           >
             <source src="/agent.mp4" type="video/mp4" />
           </video>

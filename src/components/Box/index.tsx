@@ -15,10 +15,10 @@ export const Box: React.FC<BoxProps> = ({
   return (
     <div className={`box ${className}`}>
       <div className={`box-content ${contentClassName}`}>{children}</div>
-      <div className="corner-decoration top-left"></div>
-      <div className="corner-decoration top-right"></div>
-      <div className="corner-decoration bottom-left"></div>
-      <div className="corner-decoration bottom-right"></div>
+      <div className="corner-decoration box-top-left"></div>
+      <div className="corner-decoration box-top-right"></div>
+      <div className="corner-decoration box-bottom-left"></div>
+      <div className="corner-decoration box-bottom-right"></div>
     </div>
   );
 };

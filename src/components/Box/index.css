@@ -19,25 +19,25 @@
   border-style: solid;
 }
 
-.top-left {
+.box-top-left {
   top: -1px;
   left: -1px;
   border-width: 2px 0 0 2px;
 }
 
-.top-right {
+.box-top-right {
   top: -1px;
   right: -1px;
   border-width: 2px 2px 0 0;
 }
 
-.bottom-left {
+.box-bottom-left {
   bottom: -1px;
   left: -1px;
   border-width: 0 0 2px 2px;
 }
 
-.bottom-right {
+.box-bottom-right {
   bottom: -1px;
   right: -1px;
   border-width: 0 2px 2px 0;
