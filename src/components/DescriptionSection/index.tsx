@@ -31,7 +31,7 @@ const DescriptionSection = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    window.open("https://docs.daisy.xyz", "_blank");
+    window.open("https://docs.halagent.org", "_blank");
   };
 
   return (
@@ -56,7 +56,7 @@ const DescriptionSection = () => {
             className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 border cyberpunk-border cyberpunk-text hover:bg-red-500/10 text-sm sm:text-base"
             onClick={handleClick}
           >
-            EXPLORE DAISY 9000
+            EXPLORE AGENT SYSTEM
           </button>
         </div>
       </div>

@@ -18,14 +18,14 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
       <div className="flex items-center gap-2">
         <img
           src="/daisy-logo.svg"
-          alt="DAISY.AI"
+          alt="HAL.AI"
           className="w-6 h-6 sm:w-8 sm:h-8"
         />
-        <span className="cyberpunk-text text-lg sm:text-xl">DAISY.AI</span>
+        <span className="cyberpunk-text text-lg sm:text-xl">HAL.AI</span>
       </div>
       <div className="flex gap-2 sm:gap-4">
         <a
-          href="https://twitter.com/daisy_ai_"
+          href="https://twitter.com/HALAI_SOL"
           target="_blank"
           rel="noopener noreferrer"
           className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full"
@@ -36,7 +36,7 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
           />
         </a>
         <a
-          href="https://docs.daisy.xyz"
+          href="https://docs.halagent.org"
           target="_blank"
           rel="noopener noreferrer"
           className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full"

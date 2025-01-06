@@ -100,11 +100,11 @@ const AgentSection = () => {
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm">CORPORATION</h4>
-                <p className="cyberpunk-text text-base sm:text-lg">DAISY.AI</p>
+                <p className="cyberpunk-text text-base sm:text-lg">HAL.AI</p>
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm mb-2">FEATURE</h4>
-                <button className="w-full py-1 px-3 text-xs sm:text-sm text-black text-left font-bold bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
+                <button className="w-full py-1 px-3 text-xs text-left font-bold bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
                   Highly Intelligent
                 </button>
               </div>
@@ -114,7 +114,7 @@ const AgentSection = () => {
                   onClick={handleClick}
                   className="w-full py-1 px-3 text-xs sm:text-sm font-bold border cyberpunk-border cyberpunk-text flex items-center justify-center"
                 >
-                  OPEN TELEGRAM
+                  TELEGRAM
                   <ReactSVG
                     src={telegramIcon}
                     className="w-3 h-3 sm:w-4 sm:h-4 ml-2"
@@ -133,7 +133,7 @@ const AgentSection = () => {
         </div>
 
         {/* Chat Area */}
-        <Box className="md:col-span-18 min-h-[60vh] md:min-h-screen px-4 sm:px-16 py-6 sm:py-12">
+        <Box className="md:col-span-16 min-h-[60vh] md:min-h-screen px-4 sm:px-16 py-6 sm:py-12">
           <div className="flex flex-col bg-#e84a4a20 px-4 sm:px-10 py-4 sm:py-6 h-[calc(100vh-100px)]">
             {/* <div className="flex items-start justify-start gap-2 sm:gap-4">
               <ReactSVG
@@ -177,7 +177,7 @@ const AgentSection = () => {
         </Box>
 
         {/* Right Status */}
-        <div className="md:col-span-3 flex flex-col justify-between min-h-0 md:min-h-screen mt-4 md:mt-0">
+        <div className="md:col-span-5 flex flex-col justify-between min-h-0 md:min-h-screen mt-4 md:mt-0">
           <div className="flex flex-col border-l-2 border-#e84a4a px-4 h-fit cyberpunk-border">
             <h3 className="cyberpunk-text mt-2 text-sm sm:text-base">
               ACTIVE QUEST
@@ -188,7 +188,7 @@ const AgentSection = () => {
                 Data Sovereignty
               </p>
               <h4 className="mt-4 mb-2 text-xs sm:text-sm">GOAL</h4>
-              <p className="cyberpunk-text text-xs sm:text-sm text-gray-400 mb-2">
+              <p className="cyberpunk-text text-xs text-gray-400 mb-2">
                 BUILDING AN ECOSYSTEM OF DISTRIBUTED INTELLIGENT AGENTS DESIGNED
                 TO HELP INDIVIDUALS REGAIN CONTROL OVER THEIR DATA, FOSTER
                 COLLABORATION BETWEEN AGENTS AND HUMANS, AND INTEGRATE EMOTIONAL
