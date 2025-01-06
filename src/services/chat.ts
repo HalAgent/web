@@ -3,13 +3,24 @@ import {  Message } from '../types/chat';
 
 export const chatApi = {
   createChat: async (initialMessage: string): Promise<Message> => {
-    const result = await api.post(`/chat`, {
-      text: initialMessage,
-    });
-    const response = result.data.data?.response;
-    const json = JSON.parse(response);
+    try {
+      const result = await api.post(`/chat`, {
+        text: initialMessage,
+      });
+      const response = result.data.data?.response;
+      const json = JSON.parse(response);
+      return {
+        text: json.text,
+        user: 'agent',
+        action: 'NONE',
+      };
+    }
+    catch (err) {
+      console.log(err);
+    }
+
     return {
-      text: json.text,
+      text: "Something went error, please try again.",
       user: 'agent',
       action: 'NONE',
     };
