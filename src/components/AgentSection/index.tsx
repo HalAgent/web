@@ -104,7 +104,7 @@ const AgentSection = () => {
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm mb-2">FEATURE</h4>
-                <button className="w-full max-w-320px py-1 px-3 text-xs sm:text-sm text-left bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
+                <button className="w-full max-w-320px py-1 px-3 text-xs sm:text-sm text-center border cyberpunk-border cyberpunk-text bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat uppercase text-white hover:bg-red-500/10">
                   Empathetic
                 </button>
               </div>

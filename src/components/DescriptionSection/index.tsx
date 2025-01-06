@@ -79,7 +79,7 @@ const DescriptionSection = () => {
           ></p>
           <button
             ref={buttonRef}
-            className="targeting-btn mt-6 sm:mt-8 text-center py-2 border cyberpunk-border cyberpunk-text hover:bg-red-500/10 text-sm sm:text-base relative"
+            className="targeting-btn mt-6 sm:mt-8 text-center ml-15px px-4 py-2 border cyberpunk-border cyberpunk-text hover:bg-red-500/10 text-sm sm:text-base relative"
             onClick={handleClick}
           >
             <span className="corner-animation top-left"></span>
