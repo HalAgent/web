@@ -15,7 +15,7 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
         isHeaderVisible ? "translate-y-0" : "-translate-y-full"
       } ${isAtTop ? "bg-transparent" : "bg-black"}`}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 mt-2 ml-2">
         <img
           src="/daisy-logo.svg"
           alt="HAL.AI"
@@ -23,7 +23,7 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
         />
         <span className="cyberpunk-text text-lg sm:text-xl">HAL.AI</span>
       </div>
-      <div className="flex gap-2 sm:gap-4">
+      <div className="flex gap-2 sm:gap-4 mt-2 ml-2">
         <a
           href="https://twitter.com/HALAI_SOL"
           target="_blank"
@@ -36,7 +36,7 @@ const Header = ({ isHeaderVisible, isAtTop }: HeaderProps) => {
           />
         </a>
         <a
-          href="https://docs.halagent.org"
+          href="https://halagent.gitbook.io/halagent-docs"
           target="_blank"
           rel="noopener noreferrer"
           className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-white rounded-full"

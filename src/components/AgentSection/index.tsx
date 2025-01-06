@@ -66,7 +66,7 @@ const AgentSection = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    window.open("https://docs.daisy.xyz", "_blank");
+    //window.open("https://t.me/hal_solana", "_blank");
   };
 
   return (
@@ -104,8 +104,8 @@ const AgentSection = () => {
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm mb-2">FEATURE</h4>
-                <button className="w-full py-1 px-3 text-xs text-left font-bold bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
-                  Highly Intelligent
+                <button className="w-full py-1 px-3 text-xs sm:text-sm text-left bg-[url('/bg-title.png')] bg-cover bg-right bg-no-repeat tracking-tighter uppercase">
+                  Empathetic
                 </button>
               </div>
               <div>
@@ -197,12 +197,12 @@ const AgentSection = () => {
             </div>
           </div>
           <video
-            className="w-32 h-32 sm:w-48 sm:h-48 rounded-full object-cover opacity-80 cursor-pointer mx-auto mt-4 md:mt-0"
+            className="w-32 h-32 sm:w-48 sm:h-48 rounded-full object-cover opacity-90 cursor-pointer mx-auto mt-4 md:mt-0"
             autoPlay
             loop
             muted
             playsInline
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.open("https://halagent.org/#/home", "_self")}
           >
             <source src="/agent.mp4" type="video/mp4" />
           </video>

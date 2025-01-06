@@ -31,14 +31,14 @@ const DescriptionSection = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    window.open("https://docs.halagent.org", "_blank");
+    window.open("https://halagent.org/#/agent", "_self");
   };
 
   return (
     <section className="min-h-screen relative p-8">
       <div className="absolute inset-0 z-0">
         <video
-          className="w-full h-full object-cover opacity-30 pointer-events-none"
+          className="w-full h-full object-cover opacity-50 pointer-events-none"
           autoPlay
           loop
           muted
