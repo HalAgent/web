@@ -21,24 +21,6 @@ const AgentSection = () => {
   ]);
   const [inputValue, setInputValue] = useState("");
 
-  const typewriterEffect = (
-    fullText: string,
-    callback: (text: string) => void
-  ) => {
-    let currentIndex = 0;
-
-    const interval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        callback(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 30);
-
-    return () => clearInterval(interval);
-  };
-
   const handleSendMessage = async (message: string) => {
     if (message.trim()) {
       const userMessage: Message = {
@@ -51,15 +33,8 @@ const AgentSection = () => {
 
       const resp = await chatApi.createChat(message);
       if (resp) {
-        const agentMessage: Message = { ...resp, text: "" };
+        const agentMessage: Message = { ...resp };
         setMessages((prev) => [...prev, agentMessage]);
-
-        typewriterEffect(resp.text, (text) => {
-          setMessages((prev) => [
-            ...prev.slice(0, -1),
-            { ...agentMessage, text },
-          ]);
-        });
       }
     }
   };

@@ -6,6 +6,7 @@ export const chatApi = {
     try {
       const result = await api.post(`/chat`, {
         text: initialMessage,
+        name: "Daisy 9000",
       });
       const response = result.data.data?.response;
       const json = JSON.parse(response);
