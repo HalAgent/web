@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 :root {
   --primary-color: #ff0000;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
@@ -41,4 +41,74 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ff3333;
-} 
+}
+
+.targeting-btn {
+  overflow: visible;
+}
+
+.corner-animation {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.corner-animation::before,
+.corner-animation::after {
+  content: "";
+  position: absolute;
+  background: #ff0000;
+  opacity: 0;
+  animation: targetingAnimation 2s infinite;
+  left: -15px;
+  top: -15px;
+}
+
+.corner-animation::before {
+  width: 1px;
+  height: 15px;
+}
+
+.corner-animation::after {
+  width: 15px;
+  height: 1px;
+}
+
+.top-left {
+  top: 0px;
+  left: 0px;
+}
+
+.top-right {
+  top: 0px;
+  right: 0px;
+  transform: rotate(90deg);
+}
+
+.bottom-left {
+  bottom: 0px;
+  left: 0px;
+  transform: rotate(-90deg);
+}
+
+.bottom-right {
+  bottom: 0px;
+  right: 0px;
+  transform: rotate(180deg);
+}
+
+@keyframes targetingAnimation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
