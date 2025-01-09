@@ -9,12 +9,22 @@ export const chatApi = {
         name: "Daisy 9000",
       });
       const response = result.data.data?.response;
-      const json = JSON.parse(response);
-      return {
-        text: json.text,
-        user: 'agent',
-        action: 'NONE',
-      };
+      const jsonStr = response.match(/{.*}/s)?.[0];
+      if (jsonStr) {
+        const json = JSON.parse(jsonStr);
+        return {
+          text: json.text,
+          user: 'agent',
+          action: 'NONE',
+        };
+      }
+      else {
+        return {
+          text: response,
+          user: 'agent',
+          action: 'NONE',
+        };
+      }
     }
     catch (err) {
       console.log(err);
